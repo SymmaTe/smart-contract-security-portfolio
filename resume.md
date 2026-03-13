@@ -61,6 +61,10 @@ Research and documentation of common DeFi vulnerabilities:
 
 Published vulnerability analysis and security notes based on real-world cases.
 
+**Research Articles:** https://github.com/SymmaTe/SymmaTe-security-research/tree/main/research-articles
+
+**DeFi Exploit Labs:** https://github.com/SymmaTe/SymmaTe-security-research/tree/main/defi-exploits-lab
+
 ---
 
 ## Projects
