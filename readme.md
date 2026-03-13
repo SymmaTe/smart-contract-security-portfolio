@@ -20,7 +20,7 @@ Smart contract audit findings, security research, and vulnerability analysis.
 
 ## Audit Case Studies
 
-17 real-world vulnerability analyses sourced from Code4rena · Sherlock · Cyfrin · Immunefi:
+Real-world vulnerability analyses sourced from Code4rena · Sherlock · Cyfrin · Immunefi:
 
 Topics covered: Reentrancy · TOCTOU · Signature Replay · Cross-VM State Desync · ZK Circuit Flaws · MEV · Decimal Mismatch · Integer Arithmetic
 
@@ -28,4 +28,4 @@ Topics covered: Reentrancy · TOCTOU · Signature Replay · Cross-VM State Desyn
 
 ## Audit Reports
 
-*Reports pending publication after judging period.*
+[my-audit-reports](https://github.com/SymmaTe/my-audit-reports)
