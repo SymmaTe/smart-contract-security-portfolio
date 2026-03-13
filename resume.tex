@@ -1,0 +1,160 @@
+\documentclass[9pt, a4paper]{article}
+
+% Packages
+\usepackage[margin=0.6in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{microtype}
+
+% Fonts
+\setmainfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+% Colors
+\definecolor{accent}{HTML}{1A6B8A}
+\definecolor{lightgray}{HTML}{666666}
+\definecolor{rulegray}{HTML}{CCCCCC}
+
+% Hyperlinks
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}
+  {0em}
+  {}
+  [\vspace{2pt}\color{rulegray}\titlerule\vspace{4pt}]
+
+\titlespacing{\section}{0pt}{8pt}{3pt}
+
+% No page numbers
+\pagestyle{empty}
+
+% List spacing
+\setlist[itemize]{leftmargin=1.2em, itemsep=0pt, topsep=1pt, parsep=0pt}
+
+\begin{document}
+
+%% ── HEADER ──────────────────────────────────────────────────────────────────
+
+\begin{center}
+  {\Huge\bfseries\color{accent} MingYang Fan}\\[3pt]
+  {\large\color{lightgray} Smart Contract Auditor}\\[4pt]
+  \small
+  \href{mailto:fmy1908809325@gmail.com}{fmy1908809325@gmail.com}
+  \quad\textcolor{rulegray}{|}\quad
+  \href{https://github.com/SymmaTe}{github.com/SymmaTe}
+  \quad\textcolor{rulegray}{|}\quad
+  \href{https://x.com/MingYangFa40352}{x.com/MingYangFa40352}
+\end{center}
+
+\vspace{1pt}
+\noindent\color{rulegray}\rule{\textwidth}{0.6pt}
+\vspace{2pt}
+
+\noindent\small\color{lightgray}
+Focused on DeFi protocol security, vulnerability analysis, and smart contract auditing.
+Actively participating in audit contests and conducting independent vulnerability research.
+
+\vspace{1pt}
+
+%% ── SECURITY EXPERIENCE ─────────────────────────────────────────────────────
+
+\section{Security Experience}
+
+\noindent\textbf{Smart Contract Audit Contests} \hfill \textcolor{lightgray}{\small Code4rena · Immunefi · Cyfrin First Flight}
+
+\begin{itemize}
+  \item Participated in competitive audit contests on Code4rena and Immunefi
+  \item Identified \textbf{1 Medium} severity vulnerability in the Intuition protocol (Code4rena, pending judgement)
+  \item Identified \textbf{1 Low} severity vulnerability in Folks Finance Staking Contracts (Immunefi, under review)
+  \item Conducted manual code reviews and produced structured audit reports
+\end{itemize}
+
+\vspace{4pt}
+\noindent\textbf{Cyfrin First Flight Audits} \hfill \textcolor{lightgray}{\small Cyfrin Security Program}
+
+\begin{itemize}
+  \item Stratax Contracts --- identified \textbf{1 Medium}: wrong token address passed to \texttt{\_call1InchSwap()}, causing all swaps to revert
+  \item Snowman Merkle Airdrop --- identified \textbf{2 High} · \textbf{2 Low}: signature replay, incorrect proof validation, edge-case reverts
+\end{itemize}
+
+%% ── SECURITY RESEARCH ───────────────────────────────────────────────────────
+
+\section{Security Research}
+
+\noindent\href{https://github.com/SymmaTe/SymmaTe-security-research}{\textbf{SymmaTe-security-research}} --- independent research repository
+
+\vspace{4pt}
+\noindent\textbf{Research Articles} (bilingual EN/CN):
+\begin{itemize}
+  \item Reentrancy \& \texttt{nonReentrant} Bypass --- CEI violations, cross-function reentrancy, read-only reentrancy
+  \item Signature Security Landscape --- replay attacks, EIP-712, \texttt{ecrecover} pitfalls, malleability
+\end{itemize}
+
+\vspace{4pt}
+\noindent\textbf{DeFi Exploits Lab} (Foundry PoC test suite):
+\begin{itemize}
+  \item Reentrancy, Flash Loan Price Manipulation, Oracle Manipulation, Vault Share Inflation, Sandwich MEV
+  \item Each exploit includes a vulnerable contract, fixed contract, and passing Foundry test
+\end{itemize}
+
+%% ── PROJECTS ────────────────────────────────────────────────────────────────
+
+\section{Projects}
+
+\noindent\textbf{DeFi Stablecoin Protocol} \hfill
+\href{https://github.com/SymmaTe/foundry-defi-stablecoin-f23}{\small\texttt{github.com/SymmaTe/foundry-defi-stablecoin-f23}}
+
+\begin{itemize}
+  \item Implemented an over-collateralized stablecoin system with collateral management, minting, and liquidation logic
+  \item Analyzed attack surfaces including oracle manipulation and liquidation threshold risks
+\end{itemize}
+
+\vspace{4pt}
+\noindent\textbf{Advanced NFT Marketplace} \hfill
+\href{https://github.com/SymmaTe/advanced-nft-marketplace}{\small\texttt{github.com/SymmaTe/advanced-nft-marketplace}}
+
+\begin{itemize}
+  \item Decentralized marketplace with listing, purchasing, and order management; secure NFT transfer and fee handling
+  \item Evaluated reentrancy risks, approval misuse, and order state inconsistencies
+\end{itemize}
+
+%% ── SKILLS ──────────────────────────────────────────────────────────────────
+
+\section{Skills}
+
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+  \textbf{Languages}       & Solidity, C++, Python (basic), JavaScript (basic) \\[3pt]
+  \textbf{Security Tools}  & Slither, Aderyn, Foundry \\[3pt]
+  \textbf{Vulnerability Knowledge} & Reentrancy, Flash Loan Attacks, Oracle Manipulation, Vault Share Inflation, \\
+                           & Sandwich / MEV, Signature Replay, Access Control, Integer Arithmetic \\
+\end{tabularx}
+
+%% ── EDUCATION ───────────────────────────────────────────────────────────────
+
+\section{Education}
+
+\noindent\textbf{MSc in Computer Science} \hfill \textcolor{lightgray}{Expected Jun 2026}\\
+\textcolor{lightgray}{Universidad Rey Juan Carlos, Spain}
+
+\vspace{3pt}
+\noindent\textbf{BEng in Electronic Information Engineering} \hfill \textcolor{lightgray}{First Class Honours}\\
+\textcolor{lightgray}{Technological University Dublin, Ireland}
+
+\vspace{3pt}
+\noindent\textbf{BEng in Electronic Information Engineering}\\
+\textcolor{lightgray}{Nanjing Tech University, China}
+
+\end{document}
