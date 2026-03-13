@@ -57,7 +57,7 @@ Research and documentation of common DeFi vulnerabilities:
 - Flash loan attack patterns
 - Oracle manipulation risks
 - Vault share inflation issues
-- DeFi reward distribution vulnerabilities
+- Sandwich attacks / MEV exploitation
 
 Published vulnerability analysis and security notes based on real-world cases.
 
