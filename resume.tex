@@ -77,7 +77,7 @@ Actively participating in audit contests and conducting independent vulnerabilit
 
 \begin{itemize}
   \item Participated in competitive audit contests on Code4rena and Immunefi
-  \item Identified \textbf{1 Medium} severity vulnerability in the Intuition protocol (Code4rena, pending judgement)
+  \item Identified \textbf{1 Medium} in the Intuition protocol (Code4rena): \texttt{\_getPersonalUtilizationRatio} can be gamed via MultiVault deposit/withdraw cycling, enabling 2.17x reward extraction over honest users (pending judgement)
   \item Identified \textbf{1 Low} severity vulnerability in Folks Finance Staking Contracts (Immunefi, under review)
   \item Conducted manual code reviews and produced structured audit reports
 \end{itemize}
@@ -87,7 +87,7 @@ Actively participating in audit contests and conducting independent vulnerabilit
 
 \begin{itemize}
   \item Stratax Contracts --- identified \textbf{1 Medium}: wrong token address passed to \texttt{\_call1InchSwap()}, causing all swaps to revert
-  \item Snowman Merkle Airdrop --- identified \textbf{2 High} · \textbf{2 Low}: signature replay, incorrect proof validation, edge-case reverts
+  \item Snowman Merkle Airdrop --- identified \textbf{1C · 1H · 2L}: \texttt{mintSnowman} missing access control (C); \texttt{MESSAGE\_TYPEHASH} typo breaking all EIP-712 verification (H); unchecked repeat-claim mapping, global earn-timer reset (L)
 \end{itemize}
 
 %% ── SECURITY RESEARCH ───────────────────────────────────────────────────────

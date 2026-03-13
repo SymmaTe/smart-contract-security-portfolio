@@ -1,7 +1,7 @@
-\documentclass[9pt, a4paper]{article}
+\documentclass[8.5pt, a4paper]{article}
 
 % Packages
-\usepackage[margin=0.6in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage[margin=0.55in, top=0.4in, bottom=0.4in]{geometry}
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \usepackage{xcolor}
@@ -44,7 +44,7 @@
 \pagestyle{empty}
 
 % List spacing
-\setlist[itemize]{leftmargin=1.2em, itemsep=0pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=1pt, parsep=0pt}
 
 \begin{document}
 
@@ -66,8 +66,8 @@
 \vspace{2pt}
 
 \noindent\small\color{lightgray}
-专注于 DeFi 协议安全、漏洞分析与智能合约审计。
-积极参与审计竞赛，并持续开展 DeFi 漏洞独立研究。
+专注于 DeFi 协议安全、漏洞分析与智能合约审计。积极参与 Code4rena、Immunefi 等平台的竞争性审计，
+同时持续开展独立漏洞研究，涵盖闪电贷攻击、预言机操纵、重入攻击及 MEV 等主流 DeFi 安全议题。
 
 \vspace{1pt}
 
@@ -78,38 +78,41 @@
 \noindent\textbf{智能合约审计竞赛} \hfill \textcolor{lightgray}{\small Code4rena $\cdot$ Immunefi $\cdot$ Cyfrin First Flight}
 
 \begin{itemize}
-  \item 参与 Code4rena、Immunefi 等平台的竞争性审计比赛
-  \item 在 Intuition 协议审计中发现 \textbf{1 个 Medium} 级漏洞（Code4rena，待裁定）
-  \item 在 Folks Finance Staking Contracts 中发现 \textbf{1 个 Low} 级漏洞（Immunefi，审核中）
-  \item 独立完成手动代码审查，撰写结构化审计报告
+  \item 在 Intuition 协议审计（Code4rena）中发现 \textbf{1 个 Medium} 级漏洞：\texttt{\_getPersonalUtilizationRatio} 可通过 MultiVault 反复存取操控，使攻击者在相同质押量下获得 2.17x 超额奖励（待裁定）
+  \item 在 Folks Finance Staking Contracts（Immunefi）中发现 \textbf{1 个 Low} 级漏洞（审核中）
+  \item 采用系统化审计流程：从整体架构理解入手，逐步深入核心业务逻辑与状态变更路径，重点关注资金流转与权限控制
+  \item 独立完成手动代码审查，撰写包含漏洞描述、影响分析、PoC 及修复建议的结构化审计报告
 \end{itemize}
 
-\vspace{4pt}
+\vspace{3pt}
 \noindent\textbf{Cyfrin First Flight 审计} \hfill \textcolor{lightgray}{\small Cyfrin 安全项目}
 
 \begin{itemize}
-  \item Stratax Contracts --- 发现 \textbf{1 个 Medium}：传入 \texttt{\_call1InchSwap()} 的 token 地址错误，导致所有 swap 交易回滚
-  \item Snowman Merkle Airdrop --- 发现 \textbf{2 个 High $\cdot$ 2 个 Low}：签名重放、Merkle 证明校验错误、边界条件回滚
+  \item \textbf{Stratax Contracts} --- 发现 \textbf{1 个 Medium}：\texttt{\_call1InchSwap()} 传入错误 token 地址，导致协议所有链上 swap 操作不可用
+  \item \textbf{Snowman Merkle Airdrop} --- 发现 \textbf{1C $\cdot$ 1H $\cdot$ 2L}：\texttt{mintSnowman} 无访问控制可绕过空投机制无限铸造 NFT（C）；\texttt{MESSAGE\_TYPEHASH} 拼写错误导致所有用户 EIP-712 签名验证失败（H）；重复领取漏洞、全局冷却计时器可被任意用户重置（L）
 \end{itemize}
 
 %% ── SECURITY RESEARCH ───────────────────────────────────────────────────────
 
 \section{安全研究}
 
-\noindent\href{https://github.com/SymmaTe/SymmaTe-security-research}{\textbf{SymmaTe-security-research}} --- 独立安全研究仓库
+\noindent\href{https://github.com/SymmaTe/SymmaTe-security-research}{\textbf{SymmaTe-security-research}} --- 独立安全研究仓库，包含深度技术文章与可复现 PoC 实验室
 
-\vspace{4pt}
-\noindent\textbf{研究文章}（中英双语发布）：
+\vspace{3pt}
+\noindent\textbf{研究文章}（中英双语，已在登链社区发布）：
 \begin{itemize}
-  \item 重入攻击与 \texttt{nonReentrant} 绕过 --- CEI 违规、跨函数重入、只读重入
-  \item 签名安全全景 --- 重放攻击、EIP-712、\texttt{ecrecover} 陷阱与签名可塑性
+  \item \textbf{重入攻击与 \texttt{nonReentrant} 绕过} --- 系统梳理 CEI 模式违规、跨函数重入、只读重入三类变体及对应防御策略
+  \item \textbf{签名安全全景} --- 涵盖签名重放攻击、EIP-712 标准规范、\texttt{ecrecover} 常见陷阱（零地址返回、签名可塑性）及最佳实践
 \end{itemize}
 
-\vspace{4pt}
-\noindent\textbf{DeFi 漏洞实验室}（Foundry PoC 测试套件）：
+\vspace{3pt}
+\noindent\textbf{DeFi 漏洞实验室}（Foundry PoC 测试套件，所有测试通过）：
 \begin{itemize}
-  \item 涵盖：重入攻击、闪电贷价格操纵、预言机操纵、Vault 份额通胀、三明治 MEV
-  \item 每种漏洞均包含漏洞合约、修复合约及通过的 Foundry 测试
+  \item \textbf{重入攻击} --- CEI 违规导致的以太币重复提取，含修复版本对比
+  \item \textbf{闪电贷价格操纵} --- 利用单笔闪电贷在同一交易内操控链上现货价格
+  \item \textbf{预言机操纵} --- 通过 AMM 大额交易扭曲 TWAP/Spot 价格，影响借贷清算
+  \item \textbf{Vault 份额通胀} --- ERC-4626 首存攻击，恶意首存者稀释后续用户份额
+  \item \textbf{三明治 MEV} --- 模拟抢跑与尾随交易的完整 MEV 攻击路径
 \end{itemize}
 
 %% ── PROJECTS ────────────────────────────────────────────────────────────────
@@ -120,17 +123,19 @@
 \href{https://github.com/SymmaTe/foundry-defi-stablecoin-f23}{\small\texttt{github.com/SymmaTe/foundry-defi-stablecoin-f23}}
 
 \begin{itemize}
-  \item 实现包含抵押品管理、铸币及清算逻辑的超额抵押稳定币系统
-  \item 分析了预言机操纵和清算阈值相关的潜在攻击面
+  \item 使用 Solidity + Foundry 实现超额抵押稳定币系统，包含多资产抵押品管理、铸币/销毁逻辑及链上清算机制
+  \item 以安全审计视角分析潜在攻击面：Chainlink 预言机过期价格处理、清算阈值边界条件、闪电贷辅助清算风险
+  \item 编写完整 Foundry 测试套件，覆盖正常流程与边界攻击场景
 \end{itemize}
 
-\vspace{4pt}
-\noindent\textbf{NFT 交易市场} \hfill
+\vspace{3pt}
+\noindent\textbf{NFT 去中心化交易市场} \hfill
 \href{https://github.com/SymmaTe/advanced-nft-marketplace}{\small\texttt{github.com/SymmaTe/advanced-nft-marketplace}}
 
 \begin{itemize}
-  \item 实现去中心化 NFT 市场，涵盖上架、购买及订单管理功能，设计安全的转移与手续费逻辑
-  \item 评估了重入风险、授权滥用及订单状态不一致等安全问题
+  \item 实现去中心化 NFT 市场核心功能：上架、购买、取消挂单及平台手续费分配
+  \item 设计防重入的资金结算逻辑（CEI 模式 + nonReentrant），确保 NFT 转移与付款原子性
+  \item 识别并修复 ERC721 \texttt{approve} 授权残留、订单状态竞争条件等潜在漏洞
 \end{itemize}
 
 %% ── SKILLS ──────────────────────────────────────────────────────────────────
@@ -138,10 +143,11 @@
 \section{技能}
 
 \begin{tabularx}{\textwidth}{@{} l X @{}}
-  \textbf{编程语言}   & Solidity、C++、Python（基础）、JavaScript（基础）\\[3pt]
-  \textbf{安全工具}   & Slither、Aderyn、Foundry \\[3pt]
-  \textbf{漏洞知识}   & 重入攻击、闪电贷攻击、预言机操纵、Vault 份额通胀、\\
-                      & 三明治 / MEV、签名重放、访问控制、整数运算漏洞 \\
+  \textbf{编程语言}   & Solidity、C++、Python（基础）、JavaScript（基础）\\[4pt]
+  \textbf{安全工具}   & Slither（静态分析）、Aderyn（静态分析）、Foundry（模糊测试 / PoC 编写）\\[4pt]
+  \textbf{审计方法}   & 手动代码审查、威胁建模、数据流分析、不变量验证、PoC 漏洞复现\\[4pt]
+  \textbf{漏洞方向}   & 重入攻击、闪电贷攻击、预言机操纵、Vault 份额通胀、签名重放、\\
+                      & 三明治 / MEV、访问控制缺陷、整数溢出、TOCTOU 竞争条件 \\
 \end{tabularx}
 
 %% ── EDUCATION ───────────────────────────────────────────────────────────────

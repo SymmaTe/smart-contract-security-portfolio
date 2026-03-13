@@ -7,7 +7,7 @@ Smart contract audit findings, security research, and vulnerability analysis.
 | Platform | Contest | Severity | Status |
 |----------|---------|----------|--------|
 | Cyfrin First Flight | Stratax Contracts |  1M  | Completed |
-| Cyfrin First Flight | Snowman Merkle Airdrop | 2H · 2L | Completed |
+| Cyfrin First Flight | Snowman Merkle Airdrop | 1C · 1H · 2L | Completed |
 | Code4rena | Intuition | 1M · 2L | Under Review |
 | Immunefi | Folks Finance: Staking Contracts | 1L | Under Review |
 
