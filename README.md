@@ -15,8 +15,14 @@ Smart contract audit findings, security research, and vulnerability analysis.
 
 [SymmaTe-security-research](https://github.com/SymmaTe/SymmaTe-security-research)
 
-- Reentrancy & nonReentrant Bypass — [EN] · [CN]
-- Signature Security Landscape — [EN] · [CN]
+### [research-articles](https://github.com/SymmaTe/SymmaTe-security-research/tree/main/research-articles)
+
+- Reentrancy & nonReentrant Bypass — [EN](https://github.com/SymmaTe/SymmaTe-security-research/blob/main/research-articles/reentrancy-nonreentrant-bypass-en.md) · [CN](https://github.com/SymmaTe/SymmaTe-security-research/blob/main/research-articles/reentrancy-nonreentrant-bypass-cn.md)
+- Signature Security Landscape — [EN](https://github.com/SymmaTe/SymmaTe-security-research/blob/main/research-articles/signature-security-landscape-en.md) · [CN](https://github.com/SymmaTe/SymmaTe-security-research/blob/main/research-articles/signature-security-landscape-cn.md)
+
+### [defi-exploits-lab](https://github.com/SymmaTe/SymmaTe-security-research/tree/main/defi-exploits-lab)
+
+Reentrancy · Flash Loan · Oracle Manipulation · Vault Share Inflation · Sandwich MEV
 
 ## Audit Case Studies
 
