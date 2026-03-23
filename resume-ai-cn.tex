@@ -1,0 +1,150 @@
+\documentclass[9.5pt, a4paper]{article}
+
+% Packages
+\usepackage[margin=0.55in, top=0.4in, bottom=0.4in]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{microtype}
+
+% Fonts
+\setmainfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setCJKmainfont{Noto Sans CJK SC}
+
+% Colors
+\definecolor{accent}{HTML}{1A6B8A}
+\definecolor{lightgray}{HTML}{666666}
+\definecolor{rulegray}{HTML}{CCCCCC}
+
+% Hyperlinks
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}
+  {0em}
+  {}
+  [\vspace{2pt}\color{rulegray}\titlerule\vspace{4pt}]
+
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+% No page numbers
+\pagestyle{empty}
+
+% List spacing
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt, topsep=2pt, parsep=0pt}
+
+\begin{document}
+
+%% ── HEADER ──────────────────────────────────────────────────────────────────
+
+\begin{center}
+  {\Huge\bfseries\color{accent} 范鸣阳}\\[3pt]
+  {\large\color{lightgray} AI 全栈工程师 · Web3}\\[4pt]
+  \small
+  \href{mailto:fmy1908809325@gmail.com}{fmy1908809325@gmail.com}
+  \quad\textcolor{rulegray}{|}\quad
+  \href{https://github.com/SymmaTe}{github.com/SymmaTe}
+  \quad\textcolor{rulegray}{|}\quad
+  \href{https://x.com/MingYangFa40352}{x.com/MingYangFa40352}
+\end{center}
+
+\vspace{1pt}
+\noindent\color{rulegray}\rule{\textwidth}{0.6pt}
+\vspace{2pt}
+
+\noindent\small\color{lightgray}
+独立设计并落地面向 DeFi 场景的 AI Agent 产品，具备从 LLM 集成、后端服务到前端交互的完整全栈交付能力。
+熟悉 tool calling、streaming 与 prompt engineering，有 DeFi 协议安全背景，理解链上业务逻辑与风险。
+
+\vspace{1pt}
+
+%% ── PROJECTS ────────────────────────────────────────────────────────────────
+
+\section{项目经历}
+
+\noindent\textbf{Liquidation Guard — Aave V3 仓位监控与 AI 分析平台} \hfill
+\href{https://liquidation-guard.vercel.app}{\small\texttt{liquidation-guard.vercel.app}}\\
+\noindent\textcolor{lightgray}{\small 用户手册：\href{https://thrilling-humerus-8fe.notion.site/Liquidation-Guard-98045d5666c245d2bad2f1758b7bce31}{\texttt{thrilling-humerus-8fe.notion.site}}}
+
+\begin{itemize}
+  \item 独立设计并上线完整 Web3 AI 产品，已有真实用户使用；后端 FastAPI + Supabase，前端 Next.js，部署于 Railway + Vercel
+  \item 实现 AI Agent 核心架构：tool calling 多轮对话循环、动态 prompt 注入（用户阈值、紧迫度量化）、输出自然语言分析报告
+  \item 通过 litellm 统一接入 5 个 LLM 提供商（Claude、GPT、Gemini、DeepSeek、豆包），用户自带 API Key，Fernet 加密存储
+  \item 实现链上数据工具层：实时读取 Aave V3 合约仓位、代币价格、抵押明细，供 AI Agent 按需调用
+  \item 自动监控后台：按用户配置阈值轮询健康度，触发告警时调用 AI 生成补仓/还款方案，通过 Telegram Bot 推送
+  \item 设计压力测试模块：模拟价格下跌场景，计算清算临界点，AI 给出最优操作建议
+  \item 独立完成全产品测试与 bug 排查，覆盖 AI 分析链路、监控告警、前端交互等多个模块，发现并修复 10+ 个生产级问题
+\end{itemize}
+
+\vspace{3pt}
+\noindent\textbf{DeFi 超额抵押稳定币协议} \hfill
+\href{https://github.com/SymmaTe/foundry-defi-stablecoin-f23}{\small\texttt{github.com/SymmaTe/foundry-defi-stablecoin-f23}}
+
+\begin{itemize}
+  \item 使用 Solidity + Foundry 实现超额抵押稳定币系统，包含多资产抵押品管理、铸币/销毁逻辑及链上清算机制
+  \item 编写完整 Foundry 测试套件，覆盖正常流程与边界攻击场景（Chainlink 预言机过期、清算阈值边界）
+\end{itemize}
+
+\vspace{3pt}
+\noindent\textbf{NFT 去中心化交易市场} \hfill
+\href{https://github.com/SymmaTe/advanced-nft-marketplace}{\small\texttt{github.com/SymmaTe/advanced-nft-marketplace}}
+
+\begin{itemize}
+  \item 实现去中心化 NFT 市场核心功能：上架、购买、取消挂单及平台手续费分配
+  \item 设计防重入资金结算逻辑（CEI 模式 + nonReentrant），识别并修复 ERC721 授权残留、订单竞争条件等漏洞
+\end{itemize}
+
+%% ── SKILLS ──────────────────────────────────────────────────────────────────
+
+\section{技能}
+
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+  \textbf{编程语言}   & Python、TypeScript / JavaScript、Solidity\\[6pt]
+  \textbf{AI / LLM}   & litellm、tool calling、streaming、prompt engineering、LLM 提供商接入（Claude / GPT / Gemini / DeepSeek）\\[6pt]
+  \textbf{后端}       & FastAPI、Supabase（PostgreSQL）、REST API、Telegram Bot API\\[6pt]
+  \textbf{前端}       & Next.js、React、TypeScript、wagmi、viem\\[6pt]
+  \textbf{部署}       & Railway、Vercel、Git、Docker（基础）\\[6pt]
+  \textbf{Web3}       & Solidity、Foundry、ethers.js / viem、Aave V3、Chainlink、ERC-20/721/4626\\[6pt]
+  \textbf{安全背景}   & 智能合约审计、Slither、Aderyn、DeFi 漏洞研究（重入、闪电贷、预言机操纵）\\
+\end{tabularx}
+
+%% ── SECURITY EXPERIENCE ─────────────────────────────────────────────────────
+
+\section{安全经验}
+
+\noindent\textbf{智能合约审计竞赛} \hfill \textcolor{lightgray}{\small Code4rena $\cdot$ Immunefi $\cdot$ Cyfrin First Flight}
+
+\begin{itemize}
+  \item Chainlink Payment Abstraction V2（Code4rena）— 发现 \textbf{1 个 Medium}
+  \item Intuition 协议（Code4rena）— 发现 \textbf{1 个 Medium}
+  \item Folks Finance Staking Contracts（Immunefi）— 发现 \textbf{1 个 Low}
+  \item Cyfrin First Flight：Stratax Contracts 发现 \textbf{1 个 Medium}；Snowman Merkle Airdrop 发现 \textbf{1C $\cdot$ 1H $\cdot$ 2L}
+  \item 独立撰写包含漏洞描述、影响分析、PoC 及修复建议的结构化审计报告
+\end{itemize}
+
+%% ── EDUCATION ───────────────────────────────────────────────────────────────
+
+\section{教育背景}
+
+\noindent\textbf{计算机科学 硕士} \hfill \textcolor{lightgray}{胡安·卡洛斯国王大学，西班牙 $\cdot$ 预计 2026 年 6 月毕业}
+
+\vspace{3pt}
+\noindent\textbf{电子信息工程 学士}（一等荣誉学位）\hfill \textcolor{lightgray}{都柏林理工大学，爱尔兰}
+
+\vspace{3pt}
+\noindent\textbf{电子信息工程 学士} \hfill \textcolor{lightgray}{南京工业大学，中国}
+
+\end{document}
